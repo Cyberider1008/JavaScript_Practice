@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="language">
+        <li>java</li>
+        <li>python</li>
+    </ul>
+
+
+
+    <script>
+        function addLang(lang){
+            const li = document.createElement("li");
+            const Text = document.createTextNode(`${lang}`);
+            li.appendChild(Text)
+            const language = document.querySelector(".language");
+            language.appendChild(li);
+        }
+        addLang("cpp");
+        addLang("javascript");
+
+        const li = document.querySelectorAll("li");
+        console.log(li);
+        const newli = document.createElement('li')
+        newli.textContent = "Mojo"
+        li[1].replaceWith(newli);
+
+        li[0].remove()
+    </script>
+</body>
+</html>

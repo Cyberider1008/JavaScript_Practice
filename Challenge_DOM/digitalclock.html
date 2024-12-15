@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          background-color: #212121;
+          color: #fff;
+        }
+        .center {
+          display: flex;
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+        #clock {
+          font-size: 40px;
+          background-color: orange;
+          padding: 20px 50px;
+          margin-top: 10px;
+          border-radius: 10px;
+        }
+      </style>
+</head>
+<body>
+    <div class="center">
+        <div id="banner"><span>Your local time</span></div>
+        <div id="clock"></div>
+        <button id ="btn1" style="padding: 30px; margin:5px;">start</button>
+        <button id ="btn2" style="padding: 30px; margin:5px;">stop</button>
+      </div>
+
+      <script>
+        let digi_clock = document.querySelector("#clock");
+        // console.log(clock);
+        let current_time = function(){
+            c_time = new Date().toLocaleTimeString();
+            digi_clock.style.color = "red"
+            digi_clock.innerHTML = c_time;
+        }
+       
+        btn = document.querySelectorAll("button");
+       
+        btn.forEach((btn)=>{
+                console.log(btn);
+                btn.addEventListener('click', (e)=>{
+                    console.log(e.target.id);
+                    if(e.target.id === "btn1"){
+                        myInterval = setInterval(current_time,1000);
+                    }
+                    else{
+                        clearInterval(myInterval);
+                    }
+                })
+        })
+        
+        
+        
+        
+        
+
+        
+      </script>
+</body>
+</html>
