@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+    
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">Fisrt Number</span>
+        <input type="text" class="form-control" id="first_num" class = "first_num">
+        <span class="input-group-text">Second Number</span>
+        <input type="text" class="form-control" id="second_num" class = "second_num">
+        
+      </div>
+      
+      <button type="button" class="btn btn-primary" id="+">Add</button>
+<button type="button" class="btn btn-secondary" id="-">Minus</button>
+<button type="button" class="btn btn-success" id="*">Multiplication</button>
+<button type="button" class="btn btn-danger" id="/">Division</button>
+
+
+        <br>x
+
+        <span class="badge text-bg-primary text-wrap" style="width: 5rem; padding: 15px; margin:10px;">
+            The result Display here
+        </span>
+   
+
+    <script>
+
+        const add_num = function (fnum, snum){
+            return fnum + snum;
+
+        }
+        const minus_num = function (fnum, snum){
+            return fnum - snum;
+
+        }
+        const mul_num = function (fnum, snum){
+            return fnum * snum;
+
+        }
+        const div_num = function (fnum, snum){
+            return fnum / snum;
+
+        }
+        let res;
+
+        const btn = document.querySelectorAll("button");
+
+        btn.forEach((btn)=>{
+
+            // console.log(btn);
+            btn.addEventListener('click',(e)=>{
+                // console.log(e.target.id);
+                val = document.querySelectorAll("input");
+                let fnum = parseInt(val[0].value);
+                let snum = parseInt(val[1].value);
+                
+                if(e.target.id === '+'){
+                    res = add_num(fnum , snum);
+                    
+                }
+                else if(e.target.id === '-'){
+                    res = minus_num(fnum , snum);
+                    
+                }
+                else if(e.target.id === "*"){
+                    res = mul_num(fnum , snum);
+                    
+
+                }
+                else if(e.target.id === "/"){
+                    res = div_num(fnum, snum);
+                    
+                }
+                else{
+                    console.log("default");
+                }
+console.log(res);
+const result = document.querySelector("span.badge");
+result.innerText = res;  
+
+
+            }
+        )
+
+
+        })
+
+        
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
